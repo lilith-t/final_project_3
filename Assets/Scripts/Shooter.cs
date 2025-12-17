@@ -1,5 +1,6 @@
 using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Shooter : MonoBehaviour
 {
@@ -20,7 +21,9 @@ public class Shooter : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            other.gameObject.SetActive(false);
+            Destroy(other.gameObject);
+            ScoreManager.AddScore(1);
+
         }
     }
 }
