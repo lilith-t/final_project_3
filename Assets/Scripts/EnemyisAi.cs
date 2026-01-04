@@ -1,13 +1,18 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class EnemyNavAI : MonoBehaviour
 {
     public float detectionRange = 50f;
     public float attackRange = 2f;
 
+
     private NavMeshAgent agent;
     private Transform player;
+
+    
 
     void Awake()
     {
@@ -27,15 +32,22 @@ public class EnemyNavAI : MonoBehaviour
 
         float distance = Vector3.Distance(transform.position, player.position);
 
+
+
         if (distance <= detectionRange)
         {
             agent.SetDestination(player.position);
+
         }
 
         if (distance <= attackRange)
         {
-            agent.ResetPath(); // stop moving
-            // Attack logic later
+            agent.ResetPath();
+            GameObject.Destroy(player.gameObject);
+            SceneManager.LoadScene("DeathScreen");
+
+
+
         }
         Vector3 lookDir = (player.position - transform.position).normalized;
         lookDir.y = 0f;
