@@ -110,7 +110,7 @@ CapsuleCollider:
     m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
-  m_ProvidesContacts: 0
+  m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -178,9 +178,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59ef4c4226c4d5449973cd6c10df277f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyNavAI
-  detectionRange: 50
+  detectionRange: 100
   attackRange: 2
-  footstep: {fileID: 8300000, guid: e80c88ec49a183e4d8cb9cdadf9f398d, type: 3}
 --- !u!82 &-2300452879443534121
 AudioSource:
   m_ObjectHideFlags: 0

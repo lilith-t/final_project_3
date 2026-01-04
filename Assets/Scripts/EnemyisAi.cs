@@ -43,8 +43,8 @@ public class EnemyNavAI : MonoBehaviour
         if (distance <= attackRange)
         {
             agent.ResetPath();
-            GameObject.Destroy(player.gameObject);
             SceneManager.LoadScene("DeathScreen");
+            GameObject.Destroy(player.gameObject);
 
 
 
