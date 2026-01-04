@@ -1,13 +1,18 @@
 using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Shooter : MonoBehaviour
 {
+    public static float score = 0;
     public float speed = 50f;
     public float lifetime = 5f;
+    public TextMeshProUGUI scoreText;
+    public AudioClip death;
 
     private Rigidbody rb;
+    private AudioSource audioSource;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,7 +27,7 @@ public class Shooter : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             Destroy(other.gameObject);
-            ScoreManager.AddScore(1);
+            Shooter.score += 1;
 
         }
     }
