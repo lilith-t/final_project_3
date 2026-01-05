@@ -1,6 +1,4 @@
-using UnityEditorInternal;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using TMPro;
 
 public class Shooter : MonoBehaviour
@@ -14,8 +12,7 @@ public class Shooter : MonoBehaviour
 
     private Rigidbody rb;
     private AudioSource audioSource;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         //getting component of audio and rigid body
         audioSource = GetComponent<AudioSource>();
