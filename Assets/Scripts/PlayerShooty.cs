@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerShooty : MonoBehaviour
 {
+    //initialising all the required variables
     public GameObject bullet;
     public Transform tm;
 
@@ -13,22 +14,23 @@ public class PlayerShooty : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        //creating audiosource from component
         audioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    //function to shoot
     public void Shoot()
     {
+        //making sure the gun caps out at a certain fire rate
         if (Time.time < nextFireTime)
         {
             return;
         }
         nextFireTime = Time.time + (1f / fireRate);
+        //creating the bullet instance
+
         Instantiate(bullet, tm.position, tm.rotation);
+        //playing gunshot audio
         audioSource.PlayOneShot(gunshot, 0.25f);
 
     }
